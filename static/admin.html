@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Your Destiny</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Your Destiny</a>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/cuendesti.html">Cotizar viaje</a></li>
+      <li><a href="/destacados.html">Destinos</a></li>
+      <li><a href="/comysug.html">Combos</a></li>
+      <li><a href="/admin.html" class="activo">Panel Admin</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Panel de administración</h1>
+
+    <div class="tabs">
+      <button class="tab activo" data-sec="compras">Compras</button>
+      <button class="tab" data-sec="cotizaciones">Cotizaciones</button>
+      <button class="tab" data-sec="usuarios">Usuarios</button>
+      <button class="tab" data-sec="combos">Combos</button>
+      <button class="tab" data-sec="destinos">Destinos</button>
+    </div>
+
+    <section id="sec-compras" class="panel-admin">
+      <h2>Compras y reservas registradas</h2>
+      <div class="tabla-wrap">
+        <table id="tablaCompras">
+          <thead>
+            <tr>
+              <th>Reserva</th>
+              <th>Tipo</th>
+              <th>Cliente</th>
+              <th>Contacto</th>
+              <th>Plan / Ruta</th>
+              <th>Fecha viaje</th>
+              <th>Total</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sec-cotizaciones" class="panel-admin" hidden>
+      <h2>Cotizaciones recibidas</h2>
+      <div class="tabla-wrap">
+        <table id="tablaCotizaciones">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Cliente</th>
+              <th>Ruta</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sec-usuarios" class="panel-admin" hidden>
+      <h2>Usuarios</h2>
+      <form id="formUsuario" class="form-admin">
+        <input type="text" id="nuevoUsuario" placeholder="Usuario" required maxlength="50">
+        <input type="password" id="nuevaClave" placeholder="Contraseña (mín. 4)" required>
+        <select id="nuevoRol">
+          <option value="cliente">cliente</option>
+          <option value="admin">admin</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Crear usuario</button>
+      </form>
+      <div class="tabla-wrap">
+        <table id="tablaUsuarios">
+          <thead><tr><th>ID</th><th>Usuario</th><th>Rol</th><th>Creado</th><th>Acciones</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sec-combos" class="panel-admin" hidden>
+      <h2>Combos</h2>
+      <form id="formCombo" class="form-admin">
+        <input type="hidden" id="comboId">
+        <input type="text" id="comboNombre" placeholder="Nombre" required maxlength="100">
+        <input type="text" id="comboDetalle" placeholder="Detalle (ej. Cartagena + Santa Marta)" required maxlength="255">
+        <input type="number" id="comboPrecio" placeholder="Precio COP" min="0" step="1000" required>
+        <button type="submit" class="btn btn-primary" id="btnGuardarCombo">Crear combo</button>
+        <button type="button" class="btn" id="btnCancelarCombo" hidden>Cancelar</button>
+      </form>
+      <div class="tabla-wrap">
+        <table id="tablaCombos">
+          <thead><tr><th>ID</th><th>Nombre</th><th>Detalle</th><th>Precio</th><th>Acciones</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sec-destinos" class="panel-admin" hidden>
+      <h2>Destinos</h2>
+      <form id="formDestino" class="form-admin">
+        <input type="hidden" id="destinoId">
+        <input type="text" id="destinoNombre" placeholder="Nombre" required maxlength="100">
+        <input type="text" id="destinoSubtitulo" placeholder="Subtítulo corto" maxlength="200">
+        <input type="text" id="destinoImagen" placeholder="Imagen (ej. cartagena.jpg)" required maxlength="255">
+        <input type="number" id="destinoPrecioBase" placeholder="Precio base COP" min="0" step="1000" required>
+        <input type="text" id="destinoIncluye" placeholder="Qué incluye el viaje" maxlength="500">
+        <input type="text" id="destinoDescripcion" placeholder="Descripción turística completa" maxlength="1000">
+        <button type="submit" class="btn btn-primary" id="btnGuardarDestino">Crear destino</button>
+        <button type="button" class="btn" id="btnCancelarDestino" hidden>Cancelar</button>
+      </form>
+      <div class="tabla-wrap">
+        <table id="tablaDestinos">
+          <thead><tr><th>ID</th><th>Nombre</th><th>Subtítulo</th><th>Precio base</th><th>Imagen</th><th>Acciones</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/admin.js"></script>
+</body>
+</html>
