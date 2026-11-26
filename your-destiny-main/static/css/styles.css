@@ -1,0 +1,954 @@
+/* Your Destiny — estilos globales */
+:root {
+  --color-primary: #c45c26;
+  --color-primary-dark: #9a4518;
+  --color-secondary: #2c5530;
+  --color-secondary-dark: #1f3e22;
+  --color-bg: #faf6f0;
+  --color-text: #2d2d2d;
+  --color-muted: #666666;
+  --color-card: #ffffff;
+  --color-whatsapp: #1fa855;
+  --color-whatsapp-dark: #168542;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Navegación */
+nav {
+  background: var(--color-secondary);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+nav .logo {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #e8f0e9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.activo {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.nav-logout {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-logout:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Contenedor principal */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+h1 {
+  color: var(--color-primary-dark);
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.subtitulo-pagina {
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Hero landing */
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 2.2rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #fff;
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary-dark);
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: #fff;
+  border-color: transparent;
+  width: 100%;
+  padding: 0.85rem 1.4rem;
+  font-size: 1.02rem;
+}
+
+.btn-whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+}
+
+.btn-outline:hover {
+  background: #eef4ee;
+}
+
+/* Modales reutilizables */
+.modal-backdrop,
+#modalLogin {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.modal-backdrop[hidden],
+#modalLogin[hidden] {
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+  background: var(--color-card);
+  padding: 1.75rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-content.modal-lg {
+  max-width: 600px;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.9rem;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--color-card);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.modal-content form {
+  max-width: none;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--color-secondary);
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: transparent;
+}
+
+textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+/* Preferencias rápidas en cotizador */
+.prefs-rapidas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pref-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f4efe8;
+  border: 1px solid #dccfbe;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.pref-chip input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.pref-chip:has(input:checked) {
+  background: #fcebe2;
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+/* Galería de destinos */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 0.5s ease forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.card-interactiva {
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card.card-interactiva:hover,
+.card.card-interactiva:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  outline: 2px solid var(--color-primary);
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-img-wrap {
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.precio-pill {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(44, 85, 48, 0.92);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  padding: 1rem 1.15rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card h3 {
+  color: var(--color-primary-dark);
+  margin-bottom: 0.35rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  font-size: 0.94rem;
+  color: #555;
+  margin-bottom: 0.85rem;
+  flex: 1;
+}
+
+.card-cta {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+/* Modal detalle de destino */
+.destino-modal-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.destino-subtitulo {
+  color: var(--color-muted);
+  font-weight: 600;
+  margin-top: -0.6rem;
+  margin-bottom: 1rem;
+}
+
+.destino-incluye {
+  background: #f3f7f3;
+  border-left: 4px solid var(--color-secondary);
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.15rem;
+  font-size: 0.94rem;
+}
+
+.destino-incluye strong {
+  display: block;
+  color: var(--color-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.destino-tarifa-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: #fdf4ee;
+  border: 1px solid #ecc9b5;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+}
+
+.destino-tarifa-label {
+  display: block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+}
+
+.destino-tarifa-valor {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+/* Combos */
+.combos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.combo {
+  background: var(--color-card);
+  padding: 1.65rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border-top: 4px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.combo h3 {
+  color: var(--color-primary-dark);
+  font-size: 1.25rem;
+  margin-bottom: 0.45rem;
+}
+
+.combo p {
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+
+.combo-badge {
+  display: inline-block;
+  align-self: center;
+  background: #eef4ee;
+  color: var(--color-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.combo strong {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--color-secondary);
+  margin: 0.5rem 0 1.15rem;
+}
+
+.combo button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.98rem;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.combo button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.combo-resumen-bloqueado {
+  background: #f5f8f5;
+  border: 1px solid #cfe0d1;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.15rem;
+}
+
+.combo-resumen-bloqueado .combo-nombre {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.combo-resumen-bloqueado .combo-detalle {
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  margin: 0.2rem 0 0.5rem;
+}
+
+.combo-resumen-bloqueado .combo-precio-fijo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+}
+
+/* Resumen cotización y Comprobante de compra */
+#resumen {
+  max-width: 560px;
+  margin: 1.75rem auto 0;
+}
+
+.tarjeta-cotizacion,
+.comprobante {
+  background: var(--color-card);
+  border: 2px solid var(--color-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.comprobante {
+  border-color: var(--color-whatsapp);
+  background: #f7fcf8;
+}
+
+.tarjeta-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e3e8e3;
+}
+
+.tarjeta-header h3 {
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+.codigo-badge {
+  background: var(--color-secondary);
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.28rem 0.65rem;
+  border-radius: 6px;
+}
+
+.comprobante .codigo-badge {
+  background: var(--color-whatsapp-dark);
+}
+
+.desglose-lista {
+  list-style: none;
+  margin: 0.9rem 0;
+  padding: 0.85rem 1rem;
+  background: #faf8f4;
+  border-radius: 8px;
+  border: 1px solid #ebe3d6;
+}
+
+.desglose-lista li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+  font-size: 0.96rem;
+}
+
+.desglose-lista li.desglose-total {
+  margin-top: 0.45rem;
+  padding-top: 0.6rem;
+  border-top: 2px dashed #d5c9b8;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+.comprobante-datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.94rem;
+}
+
+.comprobante-datos div span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.comprobante-total {
+  background: #e6f6ec;
+  border: 1px solid #b5e2c6;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.comprobante-total strong {
+  font-size: 1.35rem;
+  color: var(--color-whatsapp-dark);
+}
+
+.acciones-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.acciones-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.acciones-row .btn {
+  flex: 1;
+}
+
+.nota-pequena {
+  font-size: 0.84rem;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Sobre nosotros */
+.about-section {
+  background: var(--color-card);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.about-section ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Admin */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: var(--color-card);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-secondary);
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab:hover {
+  background: #eef3ee;
+}
+
+.tab.activo {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: var(--color-secondary);
+}
+
+.panel-admin h2 {
+  margin-bottom: 1rem;
+}
+
+.tabla-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.form-admin {
+  max-width: none;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.badge-tipo {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+}
+
+.badge-tipo.combo {
+  background: #fcebe2;
+  color: var(--color-primary-dark);
+}
+
+.badge-tipo.tiquete {
+  background: #e6f2ea;
+  color: var(--color-secondary);
+}
+
+.btn-editar,
+.btn-peligro {
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-editar {
+  background: var(--color-secondary);
+}
+
+.btn-peligro {
+  background: #b03a2e;
+}
+
+.btn-editar:hover,
+.btn-peligro:hover {
+  opacity: 0.85;
+}
+
+#tablaCompras,
+#tablaCotizaciones,
+#tablaUsuarios,
+#tablaCombos,
+#tablaDestinos {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-card);
+}
+
+#tablaCompras th,
+#tablaCotizaciones th,
+#tablaUsuarios th,
+#tablaCombos th,
+#tablaDestinos th {
+  background: var(--color-secondary);
+  color: #fff;
+  text-align: left;
+  white-space: nowrap;
+}
+
+#tablaCompras th,
+#tablaCompras td,
+#tablaCotizaciones th,
+#tablaCotizaciones td,
+#tablaUsuarios th,
+#tablaUsuarios td,
+#tablaCombos th,
+#tablaCombos td,
+#tablaDestinos th,
+#tablaDestinos td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+#tablaCompras tr:hover,
+#tablaCotizaciones tr:hover,
+#tablaUsuarios tr:hover,
+#tablaCombos tr:hover,
+#tablaDestinos tr:hover {
+  background: #f5f5f5;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 999;
+  max-width: 90vw;
+  text-align: center;
+}
+
+#toast.visible {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .galeria,
+  .combos,
+  .form-grid-2,
+  .comprobante-datos {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+  }
+
+  nav ul {
+    gap: 0.75rem;
+  }
+
+  form {
+    padding: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: 1.65rem;
+  }
+
+  main {
+    padding: 1.25rem 1rem;
+  }
+
+  #tablaCompras,
+  #tablaCotizaciones,
+  #tablaUsuarios,
+  #tablaCombos,
+  #tablaDestinos {
+    font-size: 0.84rem;
+  }
+}

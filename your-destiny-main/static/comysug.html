@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combos y sugerencias — Your Destiny</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Your Destiny</a>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/sobrenoso.html">Sobre nosotros</a></li>
+      <li><a href="/cuendesti.html">Cotizar viaje</a></li>
+      <li><a href="/destacados.html">Destinos</a></li>
+      <li><a href="/comysug.html" class="activo">Combos</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Combos y sugerencias</h1>
+    <p class="subtitulo-pagina">Paquetes con precio fijo todo incluido. Elige tu combo y cierra tu compra en un paso, sin cotizaciones extra.</p>
+    <div id="combos" class="combos"></div>
+  </main>
+
+  <div id="modalCompraCombo" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modalComboTitulo">
+    <div class="modal-content modal-lg">
+      <button type="button" class="modal-close" aria-label="Cerrar">&times;</button>
+      <h2 id="modalComboTitulo">Comprar combo</h2>
+
+      <div id="vistaFormCombo">
+        <div class="combo-resumen-bloqueado">
+          <div id="checkoutComboNombre" class="combo-nombre"></div>
+          <div id="checkoutComboDetalle" class="combo-detalle"></div>
+          <div id="checkoutComboPrecio" class="combo-precio-fijo"></div>
+        </div>
+
+        <form id="formCompraCombo">
+          <input type="hidden" id="checkoutComboId">
+
+          <div class="campo">
+            <label for="comboClienteNombre">Nombre completo</label>
+            <input type="text" id="comboClienteNombre" required placeholder="Ej. Laura Gómez" maxlength="100">
+          </div>
+
+          <div class="campo">
+            <label for="comboClienteContacto">Teléfono o correo electrónico</label>
+            <input type="text" id="comboClienteContacto" required placeholder="Ej. 300 123 4567 o correo@ejemplo.com" maxlength="150">
+          </div>
+
+          <div class="campo">
+            <label for="comboFechaViaje">Fecha del viaje</label>
+            <input type="date" id="comboFechaViaje" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="btnConfirmarCombo">Confirmar compra</button>
+        </form>
+      </div>
+
+      <div id="vistaComprobanteCombo" hidden></div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/comysug.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizar viaje — Your Destiny</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Your Destiny</a>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/sobrenoso.html">Sobre nosotros</a></li>
+      <li><a href="/cuendesti.html" class="activo">Cotizar viaje</a></li>
+      <li><a href="/destacados.html">Destinos</a></li>
+      <li><a href="/comysug.html">Combos</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Cotiza y compra tu viaje</h1>
+    <p class="subtitulo-pagina">Paso 1: calcula el valor real de tu tiquete según ruta y preferencias. Paso 2: confirma tu compra y recibe tu comprobante con notificación por WhatsApp.</p>
+
+    <form id="formViaje">
+      <div class="form-grid-2">
+        <div class="campo">
+          <label for="origen">Ciudad de origen</label>
+          <input type="text" id="origen" name="origen" list="ciudadesColombia" required placeholder="Ej. Bogotá">
+        </div>
+
+        <div class="campo">
+          <label for="destino">Ciudad de destino</label>
+          <input type="text" id="destino" name="destino" list="ciudadesColombia" required placeholder="Ej. Cartagena">
+        </div>
+      </div>
+
+      <datalist id="ciudadesColombia">
+        <option value="Bogotá">
+        <option value="Medellín">
+        <option value="Cartagena">
+        <option value="Santa Marta">
+        <option value="Salento">
+        <option value="Pereira">
+        <option value="Cali">
+        <option value="Barranquilla">
+        <option value="Bucaramanga">
+        <option value="Manizales">
+        <option value="Armenia">
+        <option value="Ibagué">
+        <option value="Villavicencio">
+        <option value="Neiva">
+      </datalist>
+
+      <div class="campo">
+        <label for="fecha">Fecha de viaje</label>
+        <input type="date" id="fecha" name="fecha" required>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+        </div>
+
+        <div class="campo">
+          <label for="contacto">Contacto (teléfono o email)</label>
+          <input type="text" id="contacto" name="contacto" required placeholder="300 123 4567 o email@ejemplo.com">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Adicionales opcionales</label>
+        <div class="prefs-rapidas" id="prefsRapidas">
+          <label class="pref-chip"><input type="checkbox" value="Asiento ventana"> Asiento ventana (+$15.000)</label>
+          <label class="pref-chip"><input type="checkbox" value="Horario nocturno"> Horario nocturno (+$10.000)</label>
+          <label class="pref-chip"><input type="checkbox" value="Servicio VIP"> Servicio VIP (+$25.000)</label>
+          <label class="pref-chip"><input type="checkbox" value="Equipaje adicional"> Equipaje adicional (+$18.000)</label>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="preferencias">Otras preferencias (opcional)</label>
+        <textarea id="preferencias" name="preferencias" placeholder="También puedes escribir asiento ventana, horario nocturno, mascota, etc."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="btnCotizar">Calcular tarifa y cotizar</button>
+    </form>
+
+    <div id="resumen" hidden></div>
+  </main>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/cuendesti.js"></script>
+</body>
+</html>

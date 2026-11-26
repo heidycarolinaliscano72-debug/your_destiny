@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinos destacados — Your Destiny</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Your Destiny</a>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/sobrenoso.html">Sobre nosotros</a></li>
+      <li><a href="/cuendesti.html">Cotizar viaje</a></li>
+      <li><a href="/destacados.html" class="activo">Destinos</a></li>
+      <li><a href="/comysug.html">Combos</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Destinos destacados</h1>
+    <p class="subtitulo-pagina">Haz clic en cualquier destino para conocer su descripción completa, qué incluye el viaje y su tarifa base.</p>
+    <div id="galeria" class="galeria"></div>
+  </main>
+
+  <div id="modalDestino" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modalDestinoTitulo">
+    <div class="modal-content modal-lg">
+      <button type="button" class="modal-close" aria-label="Cerrar">&times;</button>
+      <img id="modalDestinoImg" class="destino-modal-img" src="" alt="">
+      <h2 id="modalDestinoTitulo"></h2>
+      <p id="modalDestinoSubtitulo" class="destino-subtitulo"></p>
+      <p id="modalDestinoDescripcion"></p>
+      <div class="destino-incluye">
+        <strong>¿Qué incluye el viaje?</strong>
+        <span id="modalDestinoIncluye"></span>
+      </div>
+      <div class="destino-tarifa-box">
+        <div>
+          <span class="destino-tarifa-label">Tarifa base estimada</span>
+          <span id="modalDestinoPrecio" class="destino-tarifa-valor"></span>
+        </div>
+        <a id="btnReservarDestino" class="btn btn-primary" href="/cuendesti.html">Reservar este destino</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ui.js"></script>
+  <script src="/static/js/destacados.js"></script>
+</body>
+</html>
